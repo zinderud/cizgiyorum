@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="menubar">
+    <div class="menu">
+      <ul>
+        <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']"><i class="material-icons icon">home</i>Home</a></li>
+        <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/cizimler']"><i class="material-icons icon">view_module</i>Cizimler</a></li>
+        <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAuth !== null"><a [routerLink]="['/addcizim']"><i class="material-icons icon">add</i>Add Cizim</a></li>
+        <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="isAuth !== null"><a [routerLink]="['/admin']"><i class="material-icons icon">settings</i>Admin</a></li>
+        <li class="menu-item" *ngIf="isAuth === null"><a (click)="loginBtn()"><i class="material-icons icon">account_circle</i>Login</a></li>   
+        <li class="menu-item" *ngIf="isAuth !== null"><a (click)="logout()"><i class="material-icons icon">account_circle</i>Logout</a></li>   
+      </ul>
+    </div>
+  </div>
+</div>

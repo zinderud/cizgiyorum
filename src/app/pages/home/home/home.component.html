@@ -1,0 +1,96 @@
+<div *ngIf="cizimler; else noCizimler">
+  <kg-head title="{{title}}">
+  <kg-avatar image="./assets/svg/avatar.svg" name="avatar"></kg-avatar>
+  <kg-description [description]="description"></kg-description>
+  <kg-social-icons></kg-social-icons>
+    <!--<div class="skills">
+      <div class="skill" *ngFor="let skill of skills">
+        <div class="skilltitle">
+          <span class="title__title">{{skill.title}}</span>
+          <span class="title__level">{{skill.level}}</span>
+        </div>
+        <kg-progressbar [level]="skill.level"></kg-progressbar>
+      </div>
+    </div>-->
+    <h2 class="header">Cizim</h2>
+    <div class="cizimler">
+      <kg-card *ngFor="let cizim of cizimler" (click)="openCizim(cizim.$key)">
+        <kg-card-image [image]="cizim.thumbnail.url" [base64]="cizim.thumbnail.base64"></kg-card-image>
+        <kg-card-content [title]="cizim.title" [info]="cizim.description"></kg-card-content>
+        <kg-card-infor [postDate]="cizim.timestamp"></kg-card-infor>
+      </kg-card>
+    </div>
+    <div class="allcizimler">
+      <kg-btn type="button" icon="view_module" (btnClick)="openCizimler()">Daha Fazlası</kg-btn>
+    </div>
+    <h2 class="header">Mesaj Gönder</h2>
+    <div class="contact">
+      <form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">
+        <div class="input-contain">
+          <span class="material-icons icon">account_circle</span>
+          <input class="input" type="text" name="name" placeholder="İsim" [formControl]="complexForm.controls['name']" required>
+        </div>
+        <div class="input-contain">
+          <span class="material-icons icon">email</span>
+          <input class="input" type="email" name="email" placeholder="Email" [formControl]="complexForm.controls['email']" required>
+        </div>
+        <div class="input-contain">
+          <span class="material-icons icon">message</span>
+          <textarea class="input" name="message" placeholder="Mesaj" [formControl]="complexForm.controls['message']" required></textarea>
+        </div>
+        <div class="submit">
+          <kg-btn type="submit" icon="send" class="icon-right" [disabled]="!complexForm.valid">Mesaj Gönder</kg-btn>
+        </div>
+      </form>
+    </div>
+  </kg-head>
+  <kg-footer></kg-footer>
+</div>
+
+<ng-template #noCizimler>
+  <kg-head class="loading-head" title="Loading...">
+  <kg-avatar class="loading-avatar" name="avatar"></kg-avatar>
+  <kg-description></kg-description>
+ <!--   <div class="skills">
+      <div class="skill" *ngFor="let loading of [1,2,3,4,5,6,7,8]">
+        <div class="skilltitle">
+          <span class="title__title loading-content loading-text"></span>
+          <span class="title__level hide"></span>
+        </div>
+        <kg-progressbar></kg-progressbar>
+      </div>
+    </div>-->
+    <h2 class="header icon-loading">Cizim</h2>
+    <div class="cizimler">
+      <kg-card class="loading" *ngFor="let loading of [1,2,3,4]">
+        <kg-card-image></kg-card-image>
+        <kg-card-content></kg-card-content>
+        <kg-card-infor></kg-card-infor>
+      </kg-card>
+    </div>
+    <div class="allcizimler">
+      <kg-btn class="disabled" type="button" icon="view_module">Daha Fazlası</kg-btn>
+    </div>
+    <h2 class="header icon-loading">Yorum</h2>
+    <div class="contact">
+      <form>
+        <div class="input-contain disabled-input">
+          <span class="material-icons icon icon-loading">account_circle</span>
+          <input class="input" type="text" name="name" placeholder="Ad Soyad">
+        </div>
+        <div class="input-contain disabled-input">
+          <span class="material-icons icon icon-loading">email</span>
+          <input class="input" type="email" name="email" placeholder="email">
+        </div>
+        <div class="input-contain disabled-input">
+          <span class="material-icons icon icon-loading">mesaj</span>
+          <textarea class="input" name="message" placeholder="Mesajın"></textarea>
+        </div>
+        <div class="submit">
+          <kg-btn type="submit" icon="send" class="icon-right disabled">Mesaj Gönder</kg-btn>
+        </div>
+      </form>
+    </div>
+  </kg-head>
+  <kg-footer></kg-footer>
+</ng-template>

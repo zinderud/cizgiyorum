@@ -1,0 +1,36 @@
+@import ../../../config/sass/var
+
+.imgcon
+  width: 100%
+  height: 152px
+  position: relative
+  transition: opacify 1s ease-in-out
+  background-color: #f6f7f8
+
+.img
+  position: absolute
+  width: 100%
+  height: 100%
+  left: 0
+  top: 0
+  right: 0
+  bottom: 0
+  transition: $transition
+
+.hideImg
+  opacity: 0
+
+@media (min-width: 0px) and (max-width: $rw-mobile)
+  \:host
+    display: none
+
+    .img
+      display: none
+
+@media (min-width: $rw-mobile) and (max-width: $rw-tablet)
+  \:host
+    display: block
+
+@media only screen and (min-width: $rw-tablet)
+  \:host
+    display: block

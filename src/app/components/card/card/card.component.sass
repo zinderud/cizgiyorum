@@ -1,0 +1,37 @@
+@import ../../../config/sass/var
+
+\:host
+  background-color: $card-bg
+  position: relative
+  display: block
+  overflow: hidden
+  cursor: pointer
+  transition: $transition
+  border-radius: $card-border
+  box-shadow: $card-shadow
+
+  &:hover, &:focus
+    box-shadow: $card-shadow-hover
+
+\:host.loading
+  box-shadow: none
+  cursor: progress
+
+\:host.nohover
+  cursor: default
+
+  &:hover, &:focus
+    box-shadow: $card-shadow
+
+
+@media (min-width: 0px) and (max-width: $rw-mobile)
+  \:host
+    margin: 5px 0
+
+@media (min-width: $rw-mobile) and (max-width: $rw-tablet)
+  \:host
+    margin: 7px
+
+@media only screen and (min-width: $rw-tablet)
+  \:host
+    margin: 10px

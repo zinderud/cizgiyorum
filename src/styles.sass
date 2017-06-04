@@ -1,0 +1,217 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import ./cssreset
+
+// milligram
+// @import ../node_modules/milligram/src/Color
+// @import ../node_modules/milligram/src/Base
+// @import ../node_modules/milligram/src/Blockquote
+// @import ../node_modules/milligram/src/Button
+// @import ../node_modules/milligram/src/Code
+// @import ../node_modules/milligram/src/Divider
+// @import ../node_modules/milligram/src/Form
+// @import ../node_modules/milligram/src/Grid
+// @import ../node_modules/milligram/src/Link
+// @import ../node_modules/milligram/src/List
+// @import ../node_modules/milligram/src/Spacing
+// @import ../node_modules/milligram/src/Table
+@import ../node_modules/milligram/src/Typography
+// @import ../node_modules/milligram/src/Image
+// @import ../node_modules/milligram/src/Utility
+
+
+@import ./app/config/sass/var
+
+*
+  box-sizing: border-box
+
+body
+  font: 400 13px/1.54 "jaf-bernino-sans",sans-serif
+  background: $bg-color
+  color: $font-cobg
+
+.container 
+  margin: 0 auto
+  max-width: 90.0rem
+  position: relative
+  width: 100%
+  transition: $transition
+
+p
+  margin-bottom: 10px
+
+.menubtn
+  margin: 0
+  border-left: solid 1px rgba(#fff, 0.25)
+
+  &:nth-child(1)
+    border-left: 0px
+
+  button
+    padding: 0 2rem
+
+  span
+    margin: 3px 0 0 5px
+    display: none
+    float: right
+
+.btn-addcizim
+  position: absolute
+  right: 35px
+  bottom: -25px
+
+.input-contain
+  display: flex
+  align-items: center
+  flex-direction: row
+  border-radius: 2px
+  background-color: $input-bgc
+  color: $input-fc
+  box-shadow: $card-shadow
+
+  .input
+    // padding: 8px
+    background-color: transparent
+    border: none
+    outline: none
+    width: 100%
+    height: 100%
+    color: inherit
+    resize: none
+    overflow: auto
+    font: 400 13px/1.54 "jaf-bernino-sans",sans-serif
+
+  .icon
+    color: inherit
+    padding: 0 8px
+
+.hideOText
+  flex: 1
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+img
+  vertical-align: middle
+
+textarea
+  font: 400 13px/1.54 "jaf-bernino-sans",sans-serif
+
+@keyframes placeHolderShimmer
+  0%
+    background-position: -468px 0
+
+  100%
+    background-position: 468px 0
+
+// .contentBody
+//   transition: $transition
+
+.blur
+  filter: blur(5px)
+
+.loading-content
+  animation-duration: 1s
+  animation-fill-mode: forwards
+  animation-iteration-count: infinite
+  animation-name: placeHolderShimmer
+  animation-timing-function: linear
+  background: #f6f7f8
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%)
+  background-size: 950px 104px
+  height: 96px
+  position: relative
+
+.loading-text
+  height: 20px
+  margin-bottom: 5px
+  display: block
+
+  &.big
+    height: 25px
+
+.hide
+  display: none
+
+.show
+  display: block
+
+
+.markdown-output
+
+  p
+    font-size: 15px
+    font-weight: 400
+    line-height: 2
+
+  ul
+    list-style: disc
+    margin: 0 0 16px 16px
+
+  li
+    font-size: 15px
+    font-weight: 400
+    line-height: 2
+    letter-spacing: 0.2px
+
+  a
+    text-decoration: none
+    color: $font-cobg
+
+    &:hover
+      color: $accent-two
+
+
+.notification
+  width: auto
+  height: auto
+  position: fixed
+  z-index: 99999
+  bottom: 0
+  transition: $transition
+
+  .notifitem
+    background: $card-bg
+    padding: 16px
+    margin: 15px
+    display: flex
+    max-width: 500px
+    box-shadow: $card-shadow
+    animation: openNotification 0.7s ease-in-out
+
+  .icon
+    padding: 0 10px 0 0
+
+  .material-icons
+    font-size: 50px
+    color: $accent-one
+
+  .content
+    flex: 1
+
+  .title
+    font-size: 16px
+    font-weight: 600
+    text-transform: capitalize
+
+
+@keyframes openNotification
+	0%
+		margin-left: -300px
+		opacity: 0
+	100%
+		margin-left: 15px
+		opacity: 1
+
+
+@media (min-width: 0px) and (max-width: $rw-mobile)
+  .container 
+    padding: 0 0.8rem
+
+@media (min-width: $rw-mobile) and (max-width: $rw-tablet)
+  .container 
+    padding: 0 1.5rem
+
+@media only screen and (min-width: $rw-tablet)
+  .container 
+    padding: 0 2.0rem

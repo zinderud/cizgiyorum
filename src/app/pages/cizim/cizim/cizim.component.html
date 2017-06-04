@@ -1,0 +1,53 @@
+<div *ngIf="cizim; else noCizim">
+  <kg-head title="{{cizim.title}}">
+    <div class="maxw">
+       <kg-card class="desktop-image nohover" [ngClass]="tpggleImge">
+        <img class="img" src="{{cizim.largImage.url}}" alt="{{cizim.largImage.name}}" (load)="ImageLoadedd()" (error)="LoadDefault()">
+      </kg-card>
+      <kg-card class="markdown-output nohover">
+        <div class="portcontent">
+          <div class="features">
+            <p>{{cizim.description}}</p>
+          </div>
+          <div class="markdown-output" [innerHTML]="mdOutput"></div>
+        </div>
+        <kg-card-infor [postDate]="cizim.timestamp"></kg-card-infor>
+      </kg-card>
+      <kg-card class="desktop-image nohover" [ngClass]="tpggleThum">
+        <img class="img" src="{{cizim.largImage.base64}}" alt="{{cizim.largImage.name}}">
+      </kg-card>
+
+    </div>
+  </kg-head>
+  <kg-footer></kg-footer>
+</div>
+
+<ng-template #noCizim>
+  <kg-head class="loading-head" loading="true" title="Loading">
+    <div class="maxw">
+      <kg-card class="markdown-output nohover">
+        <div class="portcontent">
+          <div class="features">
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+          </div>
+          <div class="markdown-output">
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+            <div class="loading-content loading-text"></div>
+          </div>
+        </div>
+        <kg-card-infor></kg-card-infor>
+      </kg-card>
+      <kg-card class="desktop-image nohover">
+        <div class="imgcon loading-content"></div>
+      </kg-card>
+    </div>
+  </kg-head>
+<kg-footer></kg-footer>
+</ng-template>
+
+
